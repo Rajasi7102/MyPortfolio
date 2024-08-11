@@ -418,11 +418,10 @@ form.addEventListener('submit', e => {
   const message = formData.get('Message');
   const subject = 'Message from ' + name;
   const body = message + '\n\nFrom: ' + email;
-  const mailToLink = 'mailto:neheterajeshwari@gmail.com' 
-  +encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    
-    
-
+  
+  // Properly format the mailto link
+  const mailToLink = `mailto:neheterajeshwari@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
   window.location.href = mailToLink;
 
   msg.innerHTML = "Message Sent Successfully....";
@@ -431,6 +430,8 @@ form.addEventListener('submit', e => {
   }, 5000);
   form.reset();
 });
+
+  
       </script>
 
 </body>
