@@ -418,7 +418,9 @@ form.addEventListener('submit', e => {
   const message = formData.get('Message');
   const subject = 'Message from ' + name;
   const body = message + '\n\nFrom: ' + email;
-  const mailToLink = 'mailto:neheterajeshwari@gmail.com' ;
+  const mailToLink = 'mailto:neheterajeshwari@gmail.com' 
+  +encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    
     
 
   window.location.href = mailToLink;
